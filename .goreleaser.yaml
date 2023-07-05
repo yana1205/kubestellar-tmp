@@ -1,0 +1,26 @@
+# .goreleaser.yaml
+builds:
+- id: kubestellar-syncer
+  main: ./cmd/syncer
+  binary: kubestellar-syncer
+  goos:
+  - linux
+  - darwin
+  goarch:
+  - amd64
+  - arm64
+  - s390x
+- id: kubestellar-scheduler
+  main: ./cmd/kubestellar-scheduler
+  binary: kubestellar-scheduler
+  goos:
+  - linux
+  - darwin
+  goarch:
+  - amd64
+  - arm64
+  - s390x
+release:
+  draft: true
+  prerelease: auto
+  mode: keep-existing
