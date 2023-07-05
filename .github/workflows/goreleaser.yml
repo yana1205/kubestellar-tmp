@@ -4,6 +4,9 @@ on:
   push:
     tags:
     - 'v*'
+    paths:
+    - .github/workflows/goreleaser.yml
+    - .goreleaser.yaml
 
 permissions:
   contents: write
@@ -23,8 +26,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3.5.3
       with:
-        token: ${{ secrets.GH_ALL_PROJECT_TOKEN }}
-        persist-credentials: 'false'
         fetch-depth: 0
 
     - uses: actions/setup-go@v4
