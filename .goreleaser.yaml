@@ -1,4 +1,9 @@
 # .goreleaser.yaml
+env:
+  - QUAY_REGISTRY={{ .Env.QUAY_REGISTRY }}
+before:
+  hooks:
+    - echo {{ .Env.QUAY_REGISTRY }}
 builds:
 - id: kubestellar-syncer
   skip: true
