@@ -10,6 +10,7 @@ builds:
   - amd64
   - arm64
   - s390x
+
 kos:
 - build: kubestellar-syncer
   main: ./cmd/syncer
@@ -18,6 +19,7 @@ kos:
   - '{{.Version}}'
   - latest
   bare: true
+  base_image: cgr.dev/chainguard/static
   preserve_import_paths: false
   platforms:
   - linux/amd64
