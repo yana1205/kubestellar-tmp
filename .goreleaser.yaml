@@ -1,6 +1,8 @@
 # .goreleaser.yaml
+dist: bin
 builds:
 - id: kubestellar-syncer
+  skip: true
   main: ./cmd/syncer
   binary: kubestellar-syncer
   goos:
@@ -10,7 +12,6 @@ builds:
   - amd64
   - arm64
   - s390x
-  skip: true
 
 kos:
 - build: kubestellar-syncer
@@ -26,3 +27,8 @@ kos:
   - linux/amd64
   - linux/arm64
   - linux/s390x
+
+release:
+  github:
+    owner: yana1205
+    name: kubestellar-tmp
