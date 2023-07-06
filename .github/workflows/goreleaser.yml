@@ -72,7 +72,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GH_ALL_PROJECT_TOKEN }}
         USER: ${{ github.actor }}
         EMAIL: ${{ github.actor}}@users.noreply.github.com
-        QUAY_REGISTRY: ${{ vars.QUAY_REGISTRY }}
     
     # make chart IMG=${{ env.REGISTRY }}/${{ env.OPERATOR_IMAGE }}:${{github.ref_name}}
     # helm package ${{ env.CHART_PATH }} --destination . --version ${{github.ref_name}}
