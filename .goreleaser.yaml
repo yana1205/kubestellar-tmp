@@ -32,4 +32,4 @@ release:
   github:
     owner: yana1205
     name: kubestellar-tmp
-  draft: true
+  disable: true
