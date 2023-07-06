@@ -10,17 +10,16 @@ builds:
   - amd64
   - arm64
   - s390x
-- id: kubestellar-scheduler
-  main: ./cmd/kubestellar-scheduler
-  binary: kubestellar-scheduler
-  goos:
-  - linux
-  - darwin
-  goarch:
-  - amd64
-  - arm64
-  - s390x
-release:
-  draft: true
-  prerelease: auto
-  mode: keep-existing
+kos:
+- build: kubestellar-syncer
+  main: ./cmd/syncer
+  repository: quay.io/yanagawa_takumi1205/kubestellar-syncer
+  tags:
+  - '{{.Version}}'
+  - latest
+  bare: true
+  preserve_import_paths: false
+  platforms:
+  - linux/amd64
+  - linux/arm64
+  - linux/s390x
