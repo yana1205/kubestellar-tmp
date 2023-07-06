@@ -1,10 +1,4 @@
 # .goreleaser.yaml
-env:
-  - QUAY_REGISTRY={{ .Env.QUAY_REGISTRY }}
-before:
-  hooks:
-    - touch {{ .Env.QUAY_REGISTRY }}
-    - echo aaa
 builds:
 - id: kubestellar-syncer
   skip: true
@@ -21,7 +15,7 @@ builds:
 kos:
 - build: kubestellar-syncer
   main: ./cmd/syncer
-  repository: '{{ .Env.QUAY_REGISTRY }}'
+  repository: quay.io/yanagawa_takumi1205/kubestellar-syncer
   tags:
   - '{{.Version}}'
   bare: true
