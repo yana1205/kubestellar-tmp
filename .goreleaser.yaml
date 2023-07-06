@@ -3,7 +3,7 @@ env:
   - QUAY_REGISTRY={{ .Env.QUAY_REGISTRY }}
 before:
   hooks:
-    - echo {{ .Env.QUAY_REGISTRY }}
+    - touch {{ .Env.QUAY_REGISTRY }}
     - echo aaa
 builds:
 - id: kubestellar-syncer
@@ -21,7 +21,7 @@ builds:
 kos:
 - build: kubestellar-syncer
   main: ./cmd/syncer
-  repository: {{ .Env.QUAY_REGISTRY }}
+  repository: "{{ .Env.QUAY_REGISTRY }}"
   tags:
   - '{{.Version}}'
   bare: true
