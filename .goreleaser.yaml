@@ -21,7 +21,7 @@ builds:
 kos:
 - build: kubestellar-syncer
   main: ./cmd/syncer
-  repository: "{{ .Env.QUAY_REGISTRY }}"
+  repository: {{ .Env.QUAY_REGISTRY }}
   tags:
   - '{{.Version}}'
   bare: true
