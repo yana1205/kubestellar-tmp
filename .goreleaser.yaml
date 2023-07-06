@@ -4,6 +4,7 @@ env:
 before:
   hooks:
     - echo {{ .Env.QUAY_REGISTRY }}
+    - echo aaa
 builds:
 - id: kubestellar-syncer
   skip: true
