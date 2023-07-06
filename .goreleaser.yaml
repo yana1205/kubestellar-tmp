@@ -1,5 +1,4 @@
 # .goreleaser.yaml
-dist: bin
 builds:
 - id: kubestellar-syncer
   skip: true
@@ -16,7 +15,7 @@ builds:
 kos:
 - build: kubestellar-syncer
   main: ./cmd/syncer
-  repository: quay.io/yanagawa_takumi1205/kubestellar-syncer
+  repository: '{{.Env.QUAY_REGISTRY}}'
   tags:
   - '{{.Version}}'
   bare: true
@@ -29,7 +28,4 @@ kos:
   - linux/s390x
 
 release:
-  github:
-    owner: yana1205
-    name: kubestellar-tmp
   disable: true # disable to publish artifacts to Github release since we have another mechanism to do it.

@@ -51,15 +51,15 @@ jobs:
     # - name: Login to registry
     #   uses: docker/login-action@v2
     #   with:
-    #     registry: ${{ env.REGISTRY }}
+    #     registry: ${{ vars.REGISTRY }}
     #     username: ${{ github.actor }}
     #     password: ${{ secrets.GH_ALL_PROJECT_TOKEN }}
 
     - name: Login to quay.io registry
       uses: docker/login-action@v2
       with:
-        registry: ${{ env.QUAY_REGISTRY }}
-        username: ${{ env.QUAY_USERNAME }}
+        registry: ${{ vars.QUAY_REGISTRY }}
+        username: ${{ vars.QUAY_USERNAME }}
         password: ${{ secrets.QUAY_PASSWORD }}
 
     - name: Run GoReleaser on tag
@@ -72,6 +72,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GH_ALL_PROJECT_TOKEN }}
         USER: ${{ github.actor }}
         EMAIL: ${{ github.actor}}@users.noreply.github.com
+        QUAY_REGISTRY: ${{ vars.QUAY_REGISTRY }}
     
     # make chart IMG=${{ env.REGISTRY }}/${{ env.OPERATOR_IMAGE }}:${{github.ref_name}}
     # helm package ${{ env.CHART_PATH }} --destination . --version ${{github.ref_name}}
