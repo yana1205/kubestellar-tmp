@@ -49,14 +49,14 @@ jobs:
     #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
     # - name: Login to registry
-    #   uses: docker/login-action@v2
+    #   uses: docker/login-action@v3
     #   with:
     #     registry: ${{ vars.REGISTRY }}
     #     username: ${{ github.actor }}
     #     password: ${{ secrets.GH_ALL_PROJECT_TOKEN }}
 
     - name: Login to quay.io registry
-      uses: docker/login-action@v2
+      uses: docker/login-action@v3
       with:
         registry: ${{ vars.QUAY_REGISTRY }}
         username: ${{ vars.QUAY_USERNAME }}
